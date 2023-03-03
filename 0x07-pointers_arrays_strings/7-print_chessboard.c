@@ -1,22 +1,39 @@
-#include "main.h"
-
-/**
-  * print_chessboard - Print the chessboard
-  * @a: array of pieces
-  *
-  * Return: Nothing.
-  */
-void print_chessboard(char (*a)[8])
-{
-	int b, c;
-
-	for (b = 0; b < 8; b++)
-	{
-		for (c = 0; c < 8; c++)
-		{
-			_putchar(a[b][c]);
-		}
-
-		_putchar('\n');
-	}
+#include "main.h"                                                                                                                  
+                                                                                                                                   
+/**                                                                                                                                
+ * _strstr - Locates a substring.                                                                                                  
+ * @haystack: The string to be searched.                                                                                           
+ * @needle: The substring to be located.                                                                                           
+ *                                                                                                                                 
+ * Return: If the substring is located - a pointer to the beginning                                                                
+ *                                       of the located substring.                                                                 
+ *         If the substring is not located - NULL.                                                                                 
+ */                                                                                                                                
+                                                                                                                               	
+char *_strstr(char *haystack, char *needle)                                                                                        
+{                                                                                                                                  
+        int index;                                                                                                                 
+                                                                                                                                   
+        if (*needle == 0)                                                                                                          
+                return (haystack);                                                                                                 
+                                                                                                                                   
+        while (*haystack)                                                                                                          
+        {                                                                                                                          
+                index = 0;                                                                                                         
+                                                                                                                                   
+                if (haystack[index] == needle[index])                                                                              
+                {                                                                                                                  
+                        do {                                                                                                       
+                                if (needle[index + 1] == '\0')                                                                     
+                                        return (haystack);                                                                         
+                                                                                                                                   
+                                index++;                                                                                           
+                                                                                                                                   
+                        } while (haystack[index] == needle[index]);                                                                
+                }                                                                                                                  
+                                                                                                                                   
+                haystack++;                                                                                                        
+        }                                                                                                                          
+                                                                                                                                   
+        return ('\0');                                                                                                             
 }
